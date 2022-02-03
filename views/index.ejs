@@ -9,7 +9,7 @@
 <main role="main" class="container">
   <div class="row">
     <div class="col-md-8 blog-main">
-      
+    <!--
       <div class="blog-post">
         <h2 class="blog-post-title">Sample blog post</h2>
         <p class="blog-post-meta">November 1, 2014 by <a href="#">Mark</a>     </p>
@@ -17,7 +17,20 @@
         <a class = "btn btn-danger" href =""> Delete </a>
         <a class = "btn btn-info" href =""> Edit </a>
       </div>
-
+    -->
+    <%if(posts.length > 0){%>
+      <%for(let i=0; i < posts.length; i++){%>
+        <div class="blog-post">
+          <h2 class="blog-post-title"><%=posts[i].title%></h2>
+          <p class="blog-post-meta"><%=posts[i].post_date.toDateString()%> <a href="#"><%=posts[i].author%></a>     </p>
+          <p><%=posts[i].post_data%></p>
+          <a class = "btn btn-danger" href ="/delete/<%=posts[i]._id%> "> Delete </a>
+          <a class = "btn btn-info" href ="/edit/<%=posts[i]._id%>"> Edit </a>
+        </div>
+      <% } %> 
+    <%} else { %>
+      <h1>There are no posts</h1>
+    <% } %> 
 
 
     </div>

@@ -1,0 +1,23 @@
+<%- include ("./templates/_header") %>
+
+<main role="main" class="container">
+    <div class="row">
+      <div class="col-md-8 blog-main">
+        <h1>¿Seguro que quieres eliminar este post?</h1>
+        <form action="/delete/<%=post._id%> " method="POST">
+          <div class="form-group">
+            <input type="text" class="form-control" name="title" placeholder="Title" value="<%=post.title%>" disabled> <!--Pongo esto, para qué sepa el valor antiguo, y no tenga 
+            que escribir todo de nuevo-->
+          </div>
+          <div class="form-group">
+            <input type="text" name="author" class="form-control" placeholder="Author" value="<%=post.author%> " disabled>
+          </div>
+          <div class="form-group">
+            <textarea class="form-control" name="post_data" cols="100" rows="10"
+              placeholder="Add a Description" disabled><%=post.post_data%></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Delete</button>
+        </form>
+      </div>
+    </div>
+  </main>
